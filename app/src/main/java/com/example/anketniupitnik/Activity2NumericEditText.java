@@ -1,24 +1,24 @@
 package com.example.anketniupitnik;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class Activity2NumericEditText extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_activity2_numeric_edit_text);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        EditText etAge = findViewById(R.id.etAge);
+        Button btnNext = findViewById(R.id.btnNext2);
+
+        btnNext.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity2NumericEditText.this, Activity3CheckBoxRadioButton.class);
+            intent.putExtra("age", etAge.getText().toString());
+            startActivity(intent);
         });
     }
 }

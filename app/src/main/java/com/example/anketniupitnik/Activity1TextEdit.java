@@ -1,24 +1,31 @@
 package com.example.anketniupitnik;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class Activity1TextEdit extends AppCompatActivity {
+    EditText etIme, etPrezime, etEmail, etLozinka;
+    Button btnNext1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_activity1_text_edit);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        etIme = findViewById(R.id.etIme);
+        etPrezime = findViewById(R.id.etPrezime);
+        btnNext1 = findViewById(R.id.btnNext1);
+
+        btnNext1.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity1TextEdit.this, Activity2NumericEditText.class);
+            intent.putExtra("ime", etIme.getText().toString());
+            intent.putExtra("prezime", etPrezime.getText().toString());
+            intent.putExtra("email", etEmail.getText().toString());
+            intent.putExtra("lozinka", etLozinka.getText().toString());
+            startActivity(intent);
         });
     }
 }

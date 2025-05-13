@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">AnketniUpitnik</string>
+    <string name="app_name">Anketni Upitnik</string>
+    <string-array name="education_levels">
+        <item>High School</item>
+        <item>Bachelor's Degree</item>
+        <item>Master's Degree</item>
+        <item>Doctorate</item>
+    </string-array>
 </resources>
