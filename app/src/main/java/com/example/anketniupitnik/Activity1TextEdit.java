@@ -23,8 +23,6 @@ public class Activity1TextEdit extends AppCompatActivity {
             Intent intent = new Intent(Activity1TextEdit.this, Activity2NumericEditText.class);
             intent.putExtra("ime", etIme.getText().toString());
             intent.putExtra("prezime", etPrezime.getText().toString());
-            intent.putExtra("email", etEmail.getText().toString());
-            intent.putExtra("lozinka", etLozinka.getText().toString());
             startActivity(intent);
         });
     }
